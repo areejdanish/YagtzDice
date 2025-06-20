@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.applovin.mediation.MaxAd;
 import com.applovin.mediation.MaxAdFormat;
@@ -37,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
             public void onSdkInitialized(final AppLovinSdkConfiguration sdkConfig)
             {
                 LoadBannerAd();
+                Toast.makeText(MainActivity.this, "SDK Suceess", Toast.LENGTH_SHORT).show();
             }
         } );
     }
@@ -53,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                 .setAdaptiveType( MaxAdViewConfiguration.AdaptiveType.ANCHORED )
                 .build();
 
-        MaxAdView adView = new MaxAdView(getResources().getString(R.string.banner),config);
+        MaxAdView adView = new MaxAdView(getResources().getString(R.string.banner1),config);
         adView.setListener(new MaxAdViewAdListener() {
             @Override
             public void onAdExpanded(MaxAd ad) {
@@ -67,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onAdLoaded(MaxAd ad) {
+                Toast.makeText(MainActivity.this, "Banner Loaded", Toast.LENGTH_SHORT).show();
 
             }
 
@@ -84,6 +88,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onAdLoadFailed(String adUnitId, MaxError error) {
                 LoadBannerAd();
+               /* Toast.makeText(MainActivity.this, "Banner Error\n"+error.getMessage(),
+                        Toast.LENGTH_SHORT).show();*/
+                Log.e("Banner Error",error.getMessage()+"");
             }
 
             @Override
@@ -93,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
         });
         adView.setLayoutParams(new FrameLayout.LayoutParams(width, heightPx));
         adView.setBackgroundColor(Color.WHITE);
-        LinearLayout layout = findViewById(R.id.layout);
+        LinearLayout layout = findViewById(R.id.banner1);
         layout.addView(adView);
         adView.loadAd();
     }

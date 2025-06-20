@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">Banner</string>
-    <string name="sdk_key">YOUR_SDK_KEY</string>
-    <string name="banner">YOUR_BANNER_AD_ID</string>
+    <string name="sdk_key">7E1sqOqz708FBOD3N_TvZanGFfmHKs5by04Vzydm9_zUCKRvHkQgnTFCbhHlLcvDnMcqy08lyqxuhl7UImHwQw</string>
+    <string name="banner1">acc1458935e2988a</string>
+    <string name="banner2">YOUR_BANNER_AD_ID</string>
+    <string name="banner3">YOUR_BANNER_AD_ID</string>
+    <string name="banner4">YOUR_BANNER_AD_ID</string>
+
 </resources>
